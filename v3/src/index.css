@@ -1,0 +1,71 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  em {
+    font-style: normal;
+    font-weight: 300;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-black hover:text-gray-600 transition-colors duration-300 font-medium;
+  }
+  
+  .nav-link em {
+    @apply font-light;
+  }
+  
+  .slide-title em {
+    @apply font-light;
+  }
+  
+  .product-title em {
+    @apply font-light;
+  }
+  
+  .ambiente-title em {
+    @apply font-light;
+  }
+  
+  .collection-title em {
+    @apply font-light;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+  
+  .fullscreen-slider .slide {
+    @apply transition-opacity duration-1000 ease-in-out;
+  }
+  
+  .scroll-down-line-animation {
+    animation: scrollIndicator 2s infinite;
+  }
+  
+  @keyframes scrollIndicator {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+}
