@@ -1,3 +1,5 @@
+// Fallback image in case a slide image fails to load
+const fallbackImage = "/images/foto_01.jpg";
 
 import { useState, useEffect } from 'react';
 
@@ -15,42 +17,62 @@ interface SlideData {
 const slides: SlideData[] = [
   {
     id: 1,
-    title: "Colección",
-    subtitle: "Gr<em>ate</em>",
-    description: "Repetición y continuo contraste entre luces y sombras",
-    image: "https://inbani.com/wp-content/uploads/2025/08/grate_round_new_desktop_alternative.jpg",
-    mobileImage: "https://inbani.com/wp-content/uploads/2025/08/grate_round_new_mobile.jpg",
-    tabletImage: "https://inbani.com/wp-content/uploads/2025/08/grate_round_new_tablet.jpg",
+    title: "Inspiración",
+    subtitle: "Diseño <em>exclusivo</em>",
+    description: "Espacios que inspiran cada día.",
+    image: "/images/foto_01.jpg",
+    mobileImage: "/images/foto_01.jpg",
+    tabletImage: "/images/foto_01.jpg",
     link: "#"
   },
   {
     id: 2,
-    title: "Colección",
-    subtitle: "Fu<em>se</em>",
-    description: "Equilibrio perfecto entre estética, innovación y personalización",
-    image: "https://inbani.com/wp-content/uploads/2025/01/fuse_collection_desktop.jpg",
-    mobileImage: "https://inbani.com/wp-content/uploads/2025/01/fuse_collection_mobile.jpg",
-    tabletImage: "https://inbani.com/wp-content/uploads/2025/01/fuse_collection_tablet.jpg",
+    title: "Calidad",
+    subtitle: "Materiales <em>premium</em>",
+    description: "Solo lo mejor para tu baño.",
+    image: "/images/foto_02.jpg",
+    mobileImage: "/images/foto_02.jpg",
+    tabletImage: "/images/foto_02.jpg",
     link: "#"
   },
   {
     id: 3,
-    title: "Colección",
-    subtitle: "Sc<em>ala</em>",
-    description: "Cada pieza se convierte en una obra única",
-    image: "https://inbani.com/wp-content/uploads/2024/11/home_scala.jpg",
-    mobileImage: "https://inbani.com/wp-content/uploads/2024/10/movil_scala_1.jpg",
-    tabletImage: "https://inbani.com/wp-content/uploads/2024/10/scala_tablet_1.jpg",
+    title: "Innovación",
+    subtitle: "Tecnología <em>avanzada</em>",
+    description: "Funcionalidad y vanguardia en cada detalle.",
+    image: "/images/foto_03.jpg",
+    mobileImage: "/images/foto_03.jpg",
+    tabletImage: "/images/foto_03.jpg",
     link: "#"
   },
   {
     id: 4,
-    title: "Nueva colección",
-    subtitle: "Ed<em>ge</em>",
-    description: "Donde se mezclan simpleza y elegancia",
-    image: "https://inbani.com/wp-content/uploads/2025/03/edge_home_desktop-1.jpg",
-    mobileImage: "https://inbani.com/wp-content/uploads/2025/03/edge_home_mobile-1.jpg",
-    tabletImage: "https://inbani.com/wp-content/uploads/2025/03/edge_home_tablet-1.jpg",
+    title: "Estilo",
+    subtitle: "Elegancia <em>atemporal</em>",
+    description: "Diseños que nunca pasan de moda.",
+    image: "/images/foto_04.jpg",
+    mobileImage: "/images/foto_04.jpg",
+    tabletImage: "/images/foto_04.jpg",
+    link: "#"
+  },
+  {
+    id: 5,
+    title: "Sostenibilidad",
+    subtitle: "Compromiso <em>verde</em>",
+    description: "Cuidamos el planeta en cada proceso.",
+    image: "/images/foto_05.jpg",
+    mobileImage: "/images/foto_05.jpg",
+    tabletImage: "/images/foto_05.jpg",
+    link: "#"
+  },
+  {
+    id: 6,
+    title: "Confort",
+    subtitle: "Bienestar <em>total</em>",
+    description: "Tu espacio, tu refugio personal.",
+    image: "/images/foto_06.jpg",
+    mobileImage: "/images/foto_06.jpg",
+    tabletImage: "/images/foto_06.jpg",
     link: "#"
   }
 ];
@@ -81,9 +103,9 @@ export default function HeroSlider() {
   return (
     <section className="fullscreen-slider relative h-screen overflow-hidden">
       <div className="slider-wrapper relative h-full">
-        {slides.map((slide, index) => (
+        {slides && Array.isArray(slides) && slides.length > 0 && slides.map((slide, index) => (
           <div
-            key={slide.id}
+            key={slide.id || index}
             className={`slide absolute inset-0 transition-opacity duration-1000 ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
@@ -98,13 +120,18 @@ export default function HeroSlider() {
                   media="(max-width: 768px)" 
                   srcSet={slide.tabletImage}
                 />
-                <img 
+                <img
                   src={slide.image}
                   alt={`${slide.title} ${slide.subtitle}`}
-                  className="slide-image w-full h-full object-cover object-top"
+                  className="slide-image w-full h-full object-cover object-center"
+                  onError={e => {
+                    const target = e.target as HTMLImageElement;
+                    if (target.src !== window.location.origin + fallbackImage) {
+                      target.src = fallbackImage;
+                    }
+                  }}
                 />
               </picture>
-              
               <div className="slide-content absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white max-w-2xl px-4">
                   <h2 className="slide-title text-4xl md:text-6xl lg:text-7xl font-light mb-4">
