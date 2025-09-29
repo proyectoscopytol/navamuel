@@ -19,7 +19,7 @@ export default function DescargasPage() {
                 </div>
                 <h2 className="text-xl font-bold text-gray-800 mb-2 text-center">{cat.name}</h2>
                 <p className="text-gray-600 text-center mb-4 text-sm">{cat.descripcion}</p>
-                <a href={`/downloads/catalogos/${cat.file}`} download className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+                <a href={`/downloads/catalogos/${cat.file}`} download className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white font-semibold rounded-lg shadow hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m0 0l-6-6m6 6l6-6" />
                   </svg>
