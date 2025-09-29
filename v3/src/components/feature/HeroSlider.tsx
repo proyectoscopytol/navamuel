@@ -111,7 +111,7 @@ export default function HeroSlider() {
             }`}
           >
             <a href={slide.link} className="slide-link block h-full relative">
-              <picture className="slide-image-wrapper absolute inset-0">
+              <picture className="slide-image-wrapper absolute inset-0 w-full h-full flex items-center justify-center aspect-video">
                 <source 
                   media="(max-width: 425px)" 
                   srcSet={slide.mobileImage}

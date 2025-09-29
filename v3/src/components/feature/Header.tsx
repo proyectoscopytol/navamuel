@@ -65,6 +65,11 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            <Link to="/descargas" className="nav-link hover:text-gray-600 transition-colors">
+              <span>Descargas</span>
+            </Link> 
+
           </nav>
 
           {/* Actions */}
@@ -94,6 +99,7 @@ export default function Header() {
               <Link to="/" className="block py-2">Inicio</Link>
               <Link to="/colecciones" className="block py-2">Colecciones</Link>
               <Link to="/materiales" className="block py-2">Materiales</Link>
+              <Link to="/descargas" className="block py-2">Descargas</Link>
             </nav>
           </div>
         </div>
