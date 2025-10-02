@@ -1,4 +1,3 @@
-
 import { RouteObject } from 'react-router-dom';
 import NotFound from "../pages/NotFound";
 import Home from "../pages/home/page";
@@ -9,12 +8,10 @@ import ContactoPage from "../pages/contacto/page";
 import ScalaCollectionPage from "../pages/collections/scala/page";
 import EdgeCollectionPage from "../pages/collections/edge/page";
 import DescargasPage from "../pages/descargas/page";
+import MaderasPage from "../pages/maderas/page";
+import FrentesPage from "../pages/frentes/page";
 
 const routes: RouteObject[] = [
-  {
-    path: '/descargas',
-    element: <DescargasPage />
-  },
   {
     path: '/',
     element: <Home />
@@ -42,6 +39,18 @@ const routes: RouteObject[] = [
   {
     path: '/contacto',
     element: <ContactoPage />
+  },
+    {
+    path: '/maderas',
+    element: <MaderasPage />
+  },
+  {
+    path: '/frentes',
+    element: <FrentesPage />
+  },
+  {
+    path: '/descargas',
+    element: <DescargasPage />
   },
   {
     path: '*',

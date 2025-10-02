@@ -32,7 +32,7 @@ export default function ContactoPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-white">
+      <section className="relative pt-20 pb-16 bg-white mt-10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-light mb-6">
