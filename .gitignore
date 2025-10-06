@@ -1,3 +1,4 @@
 # Ignorar la carpeta node_modules en todos los niveles
 node_modules/
 **/node_modules/
+out/
