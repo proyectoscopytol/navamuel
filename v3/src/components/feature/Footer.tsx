@@ -45,7 +45,7 @@ export default function Footer() {
                 <h3 className="text-lg font-medium mb-4">Navamuel</h3>
                 <ul className="space-y-2">
                   <li><Link to="/productos" className="text-gray-600 hover:text-black">Productos</Link></li>
-                  <li><Link to="/colecciones" className="text-gray-600 hover:text-black">Colecciones</Link></li>
+                  <li><Link to="/ambientes" className="text-gray-600 hover:text-black">Colecciones</Link></li>
                   <li><Link to="/materiales" className="text-gray-600 hover:text-black">Materiales</Link></li>
                   <li><Link to="/disenadores" className="text-gray-600 hover:text-black">Diseñadores</Link></li>
                   <li><Link to="/inbanigreen" className="text-gray-600 hover:text-black">#navamuelgreen</Link></li>

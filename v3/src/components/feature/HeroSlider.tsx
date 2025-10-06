@@ -1,7 +1,7 @@
-// Fallback image in case a slide image fails to load
-const fallbackImage = "/images/foto_01.jpg";
-
 import { useState, useEffect } from 'react';
+
+// Fallback image in case a slide image fails to load
+const fallbackImage = "/images/foto_07.jpg";
 
 interface SlideData {
   id: number;
@@ -15,7 +15,7 @@ interface SlideData {
 }
 
 const slides: SlideData[] = [
-  {
+  /*{
     id: 1,
     title: "Personalización",
     subtitle: "Sin <em>límites</em>",
@@ -54,17 +54,17 @@ const slides: SlideData[] = [
     mobileImage: "/images/foto_04.jpg",
     tabletImage: "/images/foto_04.jpg",
     link: "#"
-  },
+  },*/
   {
-    id: 5,
+    id: 1,
     title: "Diseño",
     subtitle: "a <em>medida</em>",
     description: "Soluciones flexibles para cada proyecto y cliente.",
-    image: "/images/foto_05.jpg",
-    mobileImage: "/images/foto_05.jpg",
-    tabletImage: "/images/foto_05.jpg",
+    image: "/images/foto_07.jpg",
+    mobileImage: "/images/foto_07.jpg",
+    tabletImage: "/images/foto_07.jpg",
     link: "#"
-  },
+  },/*
   {
     id: 6,
     title: "Exclusividad",
@@ -73,6 +73,26 @@ const slides: SlideData[] = [
     image: "/images/foto_06.jpg",
     mobileImage: "/images/foto_06.jpg",
     tabletImage: "/images/foto_06.jpg",
+    link: "#"
+  },*/
+  {
+    id: 2,
+    title: "Diseño",
+    subtitle: "a <em>medida</em>",
+    description: "Soluciones flexibles para cada proyecto y cliente.",
+    image: "/images/foto_08.jpg",
+    mobileImage: "/images/foto_08.jpg",
+    tabletImage: "/images/foto_08.jpg",
+    link: "#"
+  },
+  {
+    id: 3,
+    title: "Exclusividad",
+    subtitle: "en <em>muebles</em>",
+    description: "Transforma tu baño con piezas únicas y personalizadas.",
+    image: "/images/foto_09.jpg",
+    mobileImage: "/images/foto_09.jpg",
+    tabletImage: "/images/foto_09.jpg",
     link: "#"
   }
 ];
@@ -101,7 +121,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="fullscreen-slider relative h-screen overflow-hidden">
+    <section className="fullscreen-slider relative h-screen overflow-hidden mt-20">
       <div className="slider-wrapper relative h-full">
         {slides && Array.isArray(slides) && slides.length > 0 && slides.map((slide, index) => (
           <div
@@ -123,7 +143,7 @@ export default function HeroSlider() {
                 <img
                   src={slide.image}
                   alt={`${slide.title} ${slide.subtitle}`}
-                  className="slide-image w-full h-full object-cover object-center"
+                  className="slide-image w-full h-full object-contain object-center"
                   onError={e => {
                     const target = e.target as HTMLImageElement;
                     if (target.src !== window.location.origin + fallbackImage) {

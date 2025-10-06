@@ -1,32 +1,18 @@
 import { RouteObject } from 'react-router-dom';
 import NotFound from "../pages/NotFound";
 import Home from "../pages/home/page";
-import ColeccionesPage from "../pages/colecciones/page";
 import MaterialesPage from "../pages/materiales/page";
 import NosotrosPage from "../pages/nosotros/page";
 import ContactoPage from "../pages/contacto/page";
-import ScalaCollectionPage from "../pages/collections/scala/page";
-import EdgeCollectionPage from "../pages/collections/edge/page";
 import DescargasPage from "../pages/descargas/page";
 import MaderasPage from "../pages/maderas/page";
 import FrentesPage from "../pages/frentes/page";
+import AmbientesPage from '../pages/ambientes/page';
 
 const routes: RouteObject[] = [
   {
     path: '/',
     element: <Home />
-  },
-  {
-    path: '/colecciones',
-    element: <ColeccionesPage />
-  },
-  {
-    path: '/collections/scala',
-    element: <ScalaCollectionPage />
-  },
-  {
-    path: '/collections/edge',
-    element: <EdgeCollectionPage />
   },
   {
     path: '/materiales',
@@ -51,6 +37,10 @@ const routes: RouteObject[] = [
   {
     path: '/descargas',
     element: <DescargasPage />
+  },
+    {
+    path: '/ambientes',
+    element: <AmbientesPage />
   },
   {
     path: '*',

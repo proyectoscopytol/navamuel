@@ -14,7 +14,7 @@ export default function Header() {
           <div className="site-branding">
             <Link to="/" className="block">
               <img 
-                src="https://static.readdy.ai/image/5048a74b63e346cf9c347c972b1b1757/f26a18085bdb02c26475415cff1c9e10.png" 
+                src="/images/logo2.png" 
                 alt="Navamuel - Mobiliario de Baño" 
                 className="h-15 w-auto"
               />
@@ -29,23 +29,22 @@ export default function Header() {
 
             <div 
               className="relative"
-              onMouseEnter={() => setActiveDropdown('colecciones')}
+              onMouseEnter={() => setActiveDropdown('ambientes')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="nav-link hover:text-gray-600 transition-colors">
-                <span>Colecciones</span>
+                <span>Ambientes</span>
               </button>
-              {activeDropdown === 'colecciones' && (
+              {activeDropdown === 'ambientes' && (
                 <div className="absolute top-full left-0 mt-1 w-64 bg-white shadow-lg border border-gray-100 rounded-sm py-2 z-50">
-                  <Link to="/colecciones" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Todas las colecciones</Link>
-                  <Link to="/collections/scala" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Scala</Link>
-                  <Link to="/colecciones?coleccion=fuse" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Fuse</Link>
-                  <Link to="/collections/edge" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Edge</Link>
-                  <Link to="/colecciones?coleccion=strato" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Strato</Link>
-                  <Link to="/colecciones?coleccion=ease" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Ease</Link>
-                  <Link to="/colecciones?coleccion=heritage" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Heritage</Link>
-                  <Link to="/colecciones?coleccion=grate" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Grate</Link>
-                  <Link to="/colecciones?coleccion=arc" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Arc</Link>
+                  <Link to="/ambientes" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Todos los ambientes</Link>
+                  <Link to="/ambientes?tipo=bano-principal" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Baño Principal</Link>
+                  <Link to="/ambientes?tipo=bano-invitados" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Baño de Invitados</Link>
+                  <Link to="/ambientes?tipo=aseo" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Aseo</Link>
+                  <Link to="/ambientes?tipo=bano-infantil" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Baño Infantil</Link>
+                  <Link to="/ambientes?tipo=bano-minimalista" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Baño Minimalista</Link>
+                  <Link to="/ambientes?tipo=bano-clasico" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Baño Clásico</Link>
+                  <Link to="/ambientes?tipo=bano-moderno" className="block px-6 py-3 hover:bg-gray-50 transition-colors">Baño Moderno</Link>
                 </div>
               )}
             </div>
@@ -114,10 +113,17 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/contacto" className="nav-link hover:text-gray-600 transition-colors">
-              Contacto
+          {/* Contact Button - Elegant Design */}
+          <div className="hidden lg:flex items-center">
+            <Link 
+              to="/contacto" 
+              className="group relative bg-black text-white px-6 py-3 hover:bg-gray-800 transition-all duration-300 cursor-pointer whitespace-nowrap overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center space-x-2">
+                <i className="ri-mail-line text-sm"></i>
+                <span className="text-sm font-medium">Contacto</span>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </Link>
           </div>
 
@@ -141,12 +147,17 @@ export default function Header() {
           <div className="container mx-auto px-4 py-4">
             <nav className="space-y-4">
               <Link to="/" className="block py-2">Inicio</Link>
-              <Link to="/colecciones" className="block py-2">Colecciones</Link>
+              <Link to="/ambientes" className="block py-2">Ambientes</Link>
               <Link to="/materiales" className="block py-2">Materiales</Link>
               <Link to="/frentes" className="block py-2">Frentes</Link>
               <Link to="/maderas" className="block py-2">Maderas</Link>
               <Link to="/nosotros" className="block py-2">Nosotros</Link>
-              <Link to="/contacto" className="block py-2">Contacto</Link>
+              <Link to="/contacto" className="block py-2 bg-black text-white px-4 -mx-4 mt-4">
+                <span className="flex items-center space-x-2">
+                  <i className="ri-mail-line"></i>
+                  <span>Contacto</span>
+                </span>
+              </Link>
             </nav>
           </div>
         </div>
