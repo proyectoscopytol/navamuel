@@ -39,7 +39,7 @@ const slides: SlideData[] = [
       },
       {
         title: "DISEÑOS DE FRENTES ÚNICOS",
-        subtitle: "Más de 300 combinaciones posibles.",
+        subtitle: "+ 300 combinaciones posibles.",
       },
     ],
   },
