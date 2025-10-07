@@ -18,19 +18,19 @@ const slides: SlideData[] = [
   {
     id: 1,
     image: "/images/foto_07.jpg",
-    mobileImage: "/images/foto_07.jpg",
+    mobileImage: "/images/foto_07_movil.jpg",
     tabletImage: "/images/foto_07.jpg",
     link: "#",
     texts: [
-      { title: "NUEVO CATALOGO", subtitle: "Personalización sin límites" },
+      { title: "NUEVO CATÁLOGO", subtitle: "Personalización sin límites" },
       { title: "FABRICACIÓN A MEDIDA", subtitle: "Diseña tu espacio de baño." },
     ],
   },
   {
     id: 2,
-    image: "/images/foto_09.jpg",
-    mobileImage: "/images/foto_09.jpg",
-    tabletImage: "/images/foto_09.jpg",
+    image: "/images/foto_08.jpg",
+    mobileImage: "/images/foto_08_movil.jpg",
+    tabletImage: "/images/foto_08.jpg",
     link: "#",
     texts: [
       {
@@ -45,9 +45,9 @@ const slides: SlideData[] = [
   },
   {
     id: 3,
-    image: "/images/foto_08.jpg",
-    mobileImage: "/images/foto_08.jpg",
-    tabletImage: "/images/foto_08.jpg",
+    image: "/images/foto_09.jpg",
+    mobileImage: "/images/foto_09_movil.jpg",
+    tabletImage: "/images/foto_09.jpg",
     link: "#",
     texts: [
       {
@@ -101,20 +101,21 @@ export default function HeroSlider() {
   const text = slide.texts[currentText];
 
   return (
-    <section className="relative h-screen overflow-hidden mt-20">
-      {/* Imagen */}
+    <section className="relative h-[80vh] md:h-screen overflow-hidden mt-20">
+      {/* Imagen responsive */}
       <div
         className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
           imageFade ? "opacity-100" : "opacity-0"
         }`}
       >
         <picture className="w-full h-full">
-          <source media="(max-width: 425px)" srcSet={slide.mobileImage} />
-          <source media="(max-width: 768px)" srcSet={slide.tabletImage} />
+          {/* Primero móvil, luego tablet, luego desktop */}
+          <source media="(max-width: 768px)" srcSet={slide.mobileImage} />
+          <source media="(max-width: 1024px)" srcSet={slide.tabletImage} />
           <img
             src={slide.image}
             alt={text.title}
-            className="w-full h-full object-cover md:object-cover sm:object-contain object-center"
+            className="w-full h-full object-cover object-top md:object-center"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               if (target.src !== window.location.origin + fallbackImage) {
